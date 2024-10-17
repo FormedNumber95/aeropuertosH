@@ -1,5 +1,6 @@
 package ctrl;
 
+import dao.DaoPersona;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -80,7 +81,7 @@ public class aniadirPersonaController {
 	    	Alert al=new Alert(AlertType.INFORMATION);
 	    	al.setHeaderText(null);
 	    	if(error.equals("")&&!existe) {
-	    		tablaPersonasController.getListaTodas().add(p);
+	    		DaoPersona.aniadir(p);
 	    		tablaPersonas.refresh();
 	    		al.setContentText("Persona añadida correctamente");
 	    	}else {
