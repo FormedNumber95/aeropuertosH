@@ -3,6 +3,7 @@ module es.aketzagonzalez {
     requires javafx.fxml;
     requires javafx.media;
     requires java.sql;
+	requires javafx.base;
     opens ctrl to javafx.fxml;
     exports es.aketzagonzalez.aeropuertosH;
     exports modelos;

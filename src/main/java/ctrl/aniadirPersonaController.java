@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import modelos.Persona;
+import modelos.ModeloPersona;
 
 /**
  * Clase aniadirPersonaController.
@@ -35,7 +35,7 @@ public class aniadirPersonaController {
     private TextField txtNombre;
     
     /** La tabla personas. */
-    private TableView<Persona> tablaPersonas; 
+    private TableView<ModeloPersona> tablaPersonas; 
 
     /**
      * Comprueba que la persona introducida sea valida, y si lo es la añade a 
@@ -70,8 +70,8 @@ public class aniadirPersonaController {
 	    		error+="La edad debe ser superior a 0\n";
 	    	}
     	}
-    	Persona p=new Persona(nombre, apellidos, edad);
-    	for(Persona per:tablaPersonasController.getListaTodas()){
+    	ModeloPersona p=new ModeloPersona(nombre, apellidos, edad);
+    	for(ModeloPersona per:tablaPersonasController.getListaTodas()){
     		if(per.equals(p)) {
     			existe=true;
     		}
@@ -133,7 +133,7 @@ public class aniadirPersonaController {
 	 *
 	 * @param tablaPersonas La tabla de personas
 	 */
-	public void setTablaPersonas(TableView<Persona> tablaPersonas) {
+	public void setTablaPersonas(TableView<ModeloPersona> tablaPersonas) {
 		this.tablaPersonas = tablaPersonas;
 	}
 	

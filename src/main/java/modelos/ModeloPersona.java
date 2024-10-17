@@ -3,9 +3,9 @@ package modelos;
 import java.util.Objects;
 
 /**
- * Clase Persona.
+ * Clase ModeloPersona.
  */
-public class Persona {
+public class ModeloPersona {
 
 	/** El nombre. */
 	private String nombre;
@@ -23,7 +23,7 @@ public class Persona {
 	 * @param apellidos Los apellidos
 	 * @param edad La edad
 	 */
-	public Persona(String nombre,String apellidos,int edad){
+	public ModeloPersona(String nombre,String apellidos,int edad){
 		this.nombre=nombre;
 		this.apellidos=apellidos;
 		this.edad=edad;
@@ -53,7 +53,7 @@ public class Persona {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Persona other = (Persona) obj;
+		ModeloPersona other = (ModeloPersona) obj;
 		return Objects.equals(apellidos, other.apellidos) && edad 
 				== other.edad && Objects.equals(nombre, other.nombre);
 	}

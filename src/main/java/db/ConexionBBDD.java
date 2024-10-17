@@ -14,10 +14,11 @@ public class ConexionBBDD {
 		 Properties connConfig = new Properties();
          connConfig.setProperty("user", "root");
          connConfig.setProperty("password", "mypass");
-         connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:33066/PERSONAS?serverTimezone=Europe/Madrid", connConfig);
+         connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:33066/personas?serverTimezone=Europe/Madrid", connConfig);
          connection.setAutoCommit(true);
          DatabaseMetaData databaseMetaData = connection.getMetaData();
        //debug
+         /*
          System.out.println();
          System.out.println("--- Datos de conexión ------------------------------------------");
          System.out.printf("Base de datos: %s%n", databaseMetaData.getDatabaseProductName());
@@ -26,6 +27,7 @@ public class ConexionBBDD {
          System.out.printf("  Versión: %s%n", databaseMetaData.getDriverVersion());
          System.out.println("----------------------------------------------------------------");
          System.out.println();
+         */
          connection.setAutoCommit(true);
 	}
 	
@@ -37,9 +39,4 @@ public class ConexionBBDD {
 		connection.close();
         return connection;
     }
-	
-	public static void main(String[] args) throws SQLException {
-		new ConexionBBDD();
-	}
-	
 }
