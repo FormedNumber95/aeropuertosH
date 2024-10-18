@@ -75,7 +75,7 @@ public class MainApp extends Application {
      * El metodo main que lanza el programa.
      *
      * @param args los argumetnos que recive por consola, ninguno
-     * @throws SQLException 
+     * @throws SQLException the SQL exception
      */
     public static void main(String[] args) throws SQLException {
     	ConexionBBDD conexioPrueba= new ConexionBBDD();

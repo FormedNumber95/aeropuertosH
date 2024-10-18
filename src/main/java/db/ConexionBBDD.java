@@ -6,10 +6,19 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * Clase ConexionBBDD.
+ */
 public class ConexionBBDD {
 	
+	/** La conexion. */
 	private final Connection connection;
 	
+	/**
+	 * Constructor sin paramentros.
+	 *
+	 * @throws SQLException the SQL exception
+	 */
 	public ConexionBBDD() throws SQLException {
 		 Properties connConfig = new Properties();
          connConfig.setProperty("user", "root");
@@ -31,10 +40,21 @@ public class ConexionBBDD {
          connection.setAutoCommit(true);
 	}
 	
+	/**
+	 * Getter de connection.
+	 *
+	 * @return the connection
+	 */
 	public Connection getConnection() {
 		return connection;
 	}
 	
+	/**
+	 * Cerrar la conexion.
+	 *
+	 * @return the connection
+	 * @throws SQLException the SQL exception
+	 */
 	public Connection CloseConexion() throws SQLException{
 		connection.close();
         return connection;

@@ -102,7 +102,8 @@ public class aniadirPersonaController {
     		Alert al=new Alert(AlertType.INFORMATION);
 	    	al.setHeaderText(null);
 	    	if(!existe&&error.equals("")) {
-	    		tablaPersonas.getItems().set(tablaPersonas.getSelectionModel().getSelectedIndex(), p);
+	    		DaoPersona.modificar(p,tablaPersonas.getSelectionModel().getSelectedItem());
+	    		tablaPersonasController.setListaTodas(DaoPersona.cargarListaPersonas());
 	    		tablaPersonas.refresh();
 	    		al.setContentText("Persona modificada correctamente");
 	    	}else {

@@ -156,7 +156,9 @@ public class tablaPersonasController {
 	        s.setResizable(false);
 	        s.initOwner(MainApp.getStage());
 	        s.initModality(javafx.stage.Modality.WINDOW_MODAL);
-	        s.show();
+	        s.showAndWait();
+	        accionFiltrar(event);
+	        tablaPersonas.refresh();
     	}
     	else {
     		Alert al=new Alert(AlertType.ERROR);
