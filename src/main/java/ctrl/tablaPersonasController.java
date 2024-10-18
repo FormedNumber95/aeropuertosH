@@ -94,7 +94,9 @@ public class tablaPersonasController {
         s.setResizable(false);
         s.initOwner(MainApp.getStage());
         s.initModality(javafx.stage.Modality.WINDOW_MODAL);
-        s.show();
+        s.showAndWait();
+        accionFiltrar(event);
+        tablaPersonas.refresh();
     }
     
     /**
@@ -206,6 +208,15 @@ public class tablaPersonasController {
 	 */
 	public static ObservableList<ModeloPersona> getListaTodas() {
 		return listaTodas;
+	}
+	
+	/**
+	 * Setter de listaTodas.
+	 *
+	 * @param listaTodas la lista de todas las persoans
+	 */
+	public static void setListaTodas(ObservableList<ModeloPersona> listaTodas) {
+		tablaPersonasController.listaTodas = listaTodas;
 	}
 
 	/**

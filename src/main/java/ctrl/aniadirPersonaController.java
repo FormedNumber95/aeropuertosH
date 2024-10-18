@@ -82,6 +82,7 @@ public class aniadirPersonaController {
 	    	al.setHeaderText(null);
 	    	if(error.equals("")&&!existe) {
 	    		DaoPersona.aniadir(p);
+	    		tablaPersonasController.setListaTodas(DaoPersona.cargarListaPersonas());
 	    		tablaPersonas.refresh();
 	    		al.setContentText("Persona añadida correctamente");
 	    	}else {
