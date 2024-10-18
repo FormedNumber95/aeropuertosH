@@ -28,6 +28,7 @@ public class DaoPersona {
 
              }
              rs.close();
+             pstmt.close();
              connection.CloseConexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -35,15 +36,36 @@ public class DaoPersona {
 		return listadoDePersonas;
 	}
 	
-	public static void eliminar() {
+	public static boolean eliminar(ModeloPersona p) {
 		ConexionBBDD connection;
+		int exito=0;
 		try {
 			connection = new ConexionBBDD();
-			String consulta;
-			PreparedStatement pstmt;
+			String consulta1="SELECT id FROM personas.Persona WHERE "
+					+ "nombre=? AND apellidos=? AND edad=?";
+			String consulta2="DELETE FROM Persona WHERE id=? ";
+			PreparedStatement pstmt1= connection.getConnection().prepareStatement(consulta1);
+			pstmt1.setString(1, p.getNombre());
+			pstmt1.setString(2, p.getApellidos());
+			pstmt1.setInt(3, p.getEdad());
+			ResultSet rs = pstmt1.executeQuery();
+			pstmt1.close();
+			if (rs.next()) {
+				String id=rs.getString("id");
+				PreparedStatement pstmt2=connection.getConnection().prepareStatement(consulta2);
+				pstmt2.setString(1, id);
+				exito=pstmt2.executeUpdate();
+				pstmt2.close();
+			}
+			else {
+				return false;
+			}
+			connection.CloseConexion();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return exito>0;
 	}
 	
 	public static boolean aniadir(ModeloPersona persona) {
@@ -58,6 +80,7 @@ public class DaoPersona {
 			pstmt.setString(2, persona.getApellidos());
 			pstmt.setInt(3, persona.getEdad());
 			exito=pstmt.executeUpdate();
+			pstmt.close();
 			connection.CloseConexion();
 		} catch (SQLException e) {
 			e.printStackTrace();

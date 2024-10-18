@@ -113,8 +113,10 @@ public class tablaPersonasController {
 	    			getSelectionModel().getSelectedItem());
 	    	al.showAndWait();
 	    	if(al.getResult().getButtonData().name().equals("OK_DONE")) {
-	    		tablaPersonas.getItems().remove(tablaPersonas.getSelectionModel().
-	    				getSelectedItem());
+	    		DaoPersona.eliminar(tablaPersonas.getSelectionModel().getSelectedItem());
+	    		listaTodas=DaoPersona.cargarListaPersonas();
+	    		accionFiltrar(event);
+	    		tablaPersonas.refresh();
 	    	}
     	}else {
     		al.setAlertType(AlertType.ERROR);
